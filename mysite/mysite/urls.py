@@ -13,9 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+#grabs contrib file from django and gives us an admins page
 from django.contrib import admin
-from django.urls import path
+#this grabs urls from djangos built in folders and builds our paths,
+#include allows refferencing other URLconfs, chopping off the remaining url for further processing
+from django.urls import include, path
 
 urlpatterns = [
+    #this sends us to the path mysite/polls/ by grabbing information from polls/urls.py
+    path('polls/', include('polls.urls')),
+    #this creates our admin page's path
     path('admin/', admin.site.urls),
 ]
