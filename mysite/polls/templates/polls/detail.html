@@ -4,9 +4,13 @@
     <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
+<!-- using post instead of get is important for submitting this form on the server-side. Whenever
+you create a form that alters data server-sides use post (this isn't django specific) -->
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     {% for choiice iiin question.choice_set.all %}
+    <!-- displays radio buttons for each question choice. value = question choice's id. button name
+    choice. -->
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
     {% endfor %}
