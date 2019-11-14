@@ -3,6 +3,9 @@ from django.urls import path
 from . import views
 
 #this is where are urls will be held
+
+#tells Django witch app to grab the url from. useful for when your project contains multiple apps
+app_name = 'polls'
 urlpatterns = [
     #this makes it so that an empty path (''), such as mysite/, sends us to the index view 
     path('', views.index, name="index"),
