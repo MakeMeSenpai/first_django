@@ -13,7 +13,7 @@ from .models import Question
 def index(request):
     #orders questions in order by date, this displays the last 5 made questions
     # Question does not have object attribute.... don't know why
-    latest_question_list = Question.object.order_by('-pub_date')[:5]
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
     #joins the lists for every q(question) in questions_list (this is just a shorter in line way
     # to do things, and is only slightly different from what you are used to.)
     output = ', '.join([q.question_text for q in latest_question_list])
@@ -22,13 +22,13 @@ def index(request):
 
 #this is the question page view
 def detail(request, question_id):
-    return HttpResponse("You're looking at question%s." % question_id)
+    return HttpResponse("You're looking at question %s." % question_id)
 
 #this is the results page view
 def results(request, question_id):
-    response = "You're looking at the results of question%s."
+    response = "You're looking at the results of question %s."
     return HttpResponse(response % question_id)
 
 #this is the vote page view
 def vote(request, question_id):
-    return HttpResponse("You're voting on question%s." % question_id)
+    return HttpResponse("You're voting on question %s." % question_id)

@@ -10,10 +10,12 @@ from django.utils import timezone
 #creates question's model
 class Question(models.Model):
     #creates textbox for questions with a max character length of 200
-    question = models.CharField(max_length=200)
+    question_text = models.CharField(max_length=200)
     #creates a published date based on time of publish
-    pub_date = models.DateTimeField('Date Published')
-
+    pub_date = models.DateTimeField('date published')
+    #Found __str__ object therefor fixing questions
+    def __str__(self):
+        return self.question_text
     #returns datetime of published queston
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
@@ -23,8 +25,11 @@ class Choice(models.Model):
     #takes from questions model info on whether it exists, if not, cascade will delete it's 
     # following choices. ForeignKey tells Django that these choices are all part of the same 
     # question.
-    question = models.ForeignKey(Question, on_delete = models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     #creates text box w/ max length of 200
     choice_text = models.CharField(max_length=200)
     #creates an interger box in which keeps track of votes made on each choice
     votes = models.IntegerField(default=0)
+    #creates str object for our choices
+    def __str__(self):
+        return self.choice_text
