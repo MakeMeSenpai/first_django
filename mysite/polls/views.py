@@ -1,7 +1,9 @@
-#grabs djangos shortcuts file and renders our views
+# #grabs djangos shortcuts file and renders our views
 from django.shortcuts import render
 #takes our web frame and returns a HttpResponse
 from django.http import HttpResponse
+#grabs from templates, better practice than render as render is used in hard code situations
+from django.template import loader
 #grabs our question model from all models
 from .models import Question
 
