@@ -34,5 +34,11 @@ class QuestionAdmin(admin.ModelAdmin):
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
     inlines = [ChoiceInline]
+    #django displays str by default. by doing this we create a list object
+    list_display = ('question_text', 'pub_date', 'was_published_recently')
+    #adds a side window for only showing questions according to the users preffered filter
+    list_filter = ['pub_date']
+    #this allows django to give us a search bar for all our questions
+    search_fields = ['question_text']
 
 admin.site.register(Question, QuestionAdmin)

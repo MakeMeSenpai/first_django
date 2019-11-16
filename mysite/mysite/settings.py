@@ -57,7 +57,9 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #os.path.join(BASE_DIIR, 'templates') creates a search path for DIRS
+        # DIRS are filesystem directories to chek when loading Django
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
