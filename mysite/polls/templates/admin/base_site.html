@@ -1,0 +1,12 @@
+<!--this is a template from djangos source code which helps us customize djangos templates-->
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<!--you change the name into Poll Admin-->
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Poll Admin') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+<!--this is from the turtorial, but a more effective template to edit would be site_header for this-->
