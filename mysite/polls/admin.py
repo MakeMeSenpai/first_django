@@ -11,7 +11,7 @@
 
 #customized admin page
 from django.contrib import admin
-from .models import Question
+from .models import Question, Choice
 
 #makes publish date come before question field, may not be impressive on a small scale, but 
 # this is useful for large data organization
