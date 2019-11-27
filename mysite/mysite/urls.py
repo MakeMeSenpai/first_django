@@ -20,6 +20,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    #this iis used for our api and framework
+    path('api/', include('api.urls')),
     #this sends us to the path mysite/polls/ by grabbing information from polls/urls.py
     path('polls/', include('polls.urls')),
     #this creates our admin page's path
