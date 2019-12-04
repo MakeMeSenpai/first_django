@@ -12,7 +12,8 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
-{# <!--This is in reference to <li> in for loop. Jinja cannot ignore comments in these areas as it can get confused. -->
+{# <!--This is in reference to <li> in for loop. Jinja cannot ignore double {} becuase it gets confused. We placed
+this here to ensure that jinja cannot get confused in any other ways.-->
 <!--slightly hard coded and can make it hard to find or change urls in the future-->
-<!-- <li><a href="/polls/{{ question.id }}/">{{ question/question_text }}</a></li> -->
+<!-- <li><a href="/polls/ question.id (in double {})/"> question/question_text (in double {})</a></li> -->
 <!--finds url based off urls.py in which you can change the url name in--> #}
