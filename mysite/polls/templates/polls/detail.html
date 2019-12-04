@@ -8,11 +8,11 @@
 you create a form that alters data server-sides use post (this isn't django specific) --> #}
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
-    {% for choiice iiin question.choice_set.all %}
-    {# <!-- displays radio buttons for each question choice. value = question choice's id. button name
-    choice. --> #}
+    {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
     {% endfor %}
     <input type="submit" value="Vote">
 </form>
+{# <!-- displays radio buttons for each question choice. value = question choice's id. button name
+    choice. --> #}
